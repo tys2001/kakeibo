@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Login v-if="scene==='Login'" @goto="goto"/>
+    <UserRegister v-if="scene==='UserRegister'" @goto="goto"/>
+    <MyPage v-if="scene==='MyPage'" @goto="goto"/>
+    <Config v-if="scene==='Config'" @goto="goto"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Login from './scene/Login.vue'
+import UserRegister from './scene/UserRegister.vue'
+import MyPage from './scene/MyPage.vue'
+import Config from './scene/Config.vue'
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
-  }
+    Login,
+    UserRegister,
+    MyPage,
+    Config,
+  },
+  name: 'app',
+  data() {
+    return {
+      scene: 'Login',
+    }
+  },
+  methods: {
+    goto(scene) {
+      this.scene = scene
+    },
+  },
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: verdana,"ヒラギノ丸ゴ ProN W4","Hiragino Maru Gothic ProN","メイリオ","Meiryo","ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
+}
+* {
+	user-select: none;
+}
+input {
+	user-select: auto;
 }
 </style>
