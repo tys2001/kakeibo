@@ -23,6 +23,7 @@ export default {
   name: 'app',
   data() {
     return {
+      store: this.$store,
       scene: 'Login',
     }
   },
