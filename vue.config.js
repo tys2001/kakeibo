@@ -1,3 +1,14 @@
+const { GenerateSW } = require('workbox-webpack-plugin')
+
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/kakeibo/' : '/'
+  productionSourceMap: false,
+  configureWebpack: config => {
+    config.plugins.push(
+      new GenerateSW({
+        cacheId: 'kakeibo',
+        skipWaiting: true,
+        clientsClaim: false
+      })
+    )
+  }
 }
