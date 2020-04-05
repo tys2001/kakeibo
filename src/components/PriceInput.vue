@@ -1,33 +1,24 @@
 <template>
   <div class="container-box">
-    <div class="button-column">
-      <b-button pill variant="primary" class="button" @click="numberPush('7')">7</b-button>
-      <b-button pill variant="primary" class="button" @click="numberPush('4')">4</b-button>
-      <b-button pill variant="primary" class="button" @click="numberPush('1')">1</b-button>
-      <b-button pill variant="primary" class="button" @click="numberPush('00')">00</b-button>
-    </div>
-
-    <div class="button-column">
-      <b-button pill variant="primary" class="button" @click="numberPush('8')">8</b-button>
-      <b-button pill variant="primary" class="button" @click="numberPush('5')">5</b-button>
-      <b-button pill variant="primary" class="button" @click="numberPush('2')">2</b-button>
-      <b-button pill variant="primary" class="button" @click="numberPush('0')">0</b-button>
-    </div>
-    <div class="button-column">
-      <b-button pill variant="primary" class="button" @click="numberPush('9')">9</b-button>
-      <b-button pill variant="primary" class="button" @click="numberPush('6')">6</b-button>
-      <b-button pill variant="primary" class="button" @click="numberPush('3')">3</b-button>
-      <b-button pill variant="primary" class="button">.</b-button>
-    </div>
-    <div class="button-column">
-      <b-button pill variant="secondary" class="button" @click="clear">
-        <font-awesome-icon icon="trash-alt" />
-      </b-button>
-      <b-button pill variant="secondary" class="button" @click="back">
-        <font-awesome-icon icon="backspace" />
-      </b-button>
-      <b-button variant="success" class="submit button" @click="submit">登録</b-button>
-    </div>
+    <b-button pill variant="primary" class="button" @click="numberPush('7')">7</b-button>
+    <b-button pill variant="primary" class="button" @click="numberPush('8')">8</b-button>
+    <b-button pill variant="primary" class="button" @click="numberPush('9')">9</b-button>
+    <b-button pill variant="secondary" class="button" @click="clear">
+      <font-awesome-icon icon="trash-alt" />
+    </b-button>
+    <b-button pill variant="primary" class="button" @click="numberPush('4')">4</b-button>
+    <b-button pill variant="primary" class="button" @click="numberPush('5')">5</b-button>
+    <b-button pill variant="primary" class="button" @click="numberPush('6')">6</b-button>
+    <b-button pill variant="secondary" class="button" @click="back">
+      <font-awesome-icon icon="backspace" />
+    </b-button>
+    <b-button pill variant="primary" class="button" @click="numberPush('1')">1</b-button>
+    <b-button pill variant="primary" class="button" @click="numberPush('2')">2</b-button>
+    <b-button pill variant="primary" class="button" @click="numberPush('3')">3</b-button>
+    <b-button pill variant="primary" class="button" @click="numberPush('00')">00</b-button>
+    <b-button pill variant="primary" class="button" @click="numberPush('0')">0</b-button>
+    <b-button pill variant="primary" class="button">.</b-button>
+    <b-button variant="success" class="submit button" @click="submit">登録</b-button>
   </div>
 </template>
 
@@ -72,17 +63,12 @@ export default {
   height: 222px;
   background-color: var(--light);
   padding: 10px;
-}
-
-.button-column {
-  display: inline-block;
-  vertical-align: top;
-  width: 25%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
 }
 
 .button {
-  width: calc(100% - 10px);
-  height: 40px;
   margin: 5px;
   padding: 0;
   line-height: 40px;
@@ -90,8 +76,9 @@ export default {
 }
 
 .submit.button {
-  height: 90px;
   line-height: 90px;
   border-radius: 20px;
+  grid-column: 4;
+  grid-row: 3 / 5;
 }
 </style>
